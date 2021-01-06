@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
-import PropTypes from 'prop-types'
+import PropTypes from 'prop-types';
 
 function PizzaBlock({ name, price, imageUrl, types, sizes }) {
   const allTypes = ['тонкое', 'традиционное'];
@@ -66,8 +66,9 @@ function PizzaBlock({ name, price, imageUrl, types, sizes }) {
   );
 }
 
-PizzaBlock.propTypes={
-  name:PropTypes.string
-}
+//Just to indicate that we can use prop-types to check whether some props are of the requred type
+PizzaBlock.propTypes = {
+  name: PropTypes.string,
+};
 
 export default PizzaBlock;

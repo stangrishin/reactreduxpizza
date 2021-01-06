@@ -23,7 +23,8 @@ function SortPopup({ items }) {
   return (
     <div ref={sortRef} className='sort'>
       <div className='sort__label'>
-        <svg className={sortingVisible ? 'rotated' : ''}
+        <svg
+          className={sortingVisible ? 'rotated' : ''}
           width='10'
           height='6'
           viewBox='0 0 10 6'
@@ -36,21 +37,21 @@ function SortPopup({ items }) {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={sortingVisionHandler}>{items[activeSort]}</span>
+        <span onClick={sortingVisionHandler}>{items[activeSort].name}</span>
       </div>
       {sortingVisible && (
         <div className='sort__popup'>
           <ul>
-            {items.map((name, index) => (
+            {items.map((object, index) => (
               <li
                 className={activeSort === index ? 'active' : ''}
                 onClick={() => {
                   setActiveSort(index);
                   setSortingVisible(false);
                 }}
-                key={name}
+                key={object.type}
               >
-                {name}
+                {object.name}
               </li>
             ))}
           </ul>
