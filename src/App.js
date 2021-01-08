@@ -1,19 +1,13 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Header } from './components';
 import { Home, Cart } from './pages';
 import { Route } from 'react-router-dom';
-import { /*connect,*/ useDispatch } from 'react-redux';
-/*import axios from 'axios';*/
-import { setPizzas /*as setPizzasAction */ } from './redux/actions/pizzas';
+// import { connect, useDispatch } from 'react-redux';
+// /*import axios from 'axios';*/
+// import { fetchPizzas /*setPizzas*/ /*as setPizzasAction */ } from './redux/actions/pizzas';
+
 
 function App() {
-  const dispatch = useDispatch();
-
-  useEffect(() => {
-    fetch('http://localhost:3001/pizzas')
-      .then((response) => response.json())
-      .then((json) => dispatch(setPizzas(json)));
-  }, []);
 
   return (
     <div className='wrapper'>

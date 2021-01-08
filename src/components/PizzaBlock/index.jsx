@@ -1,14 +1,18 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 import PropTypes from 'prop-types';
+import PizzaLoadingBlock from './LoadingBlock';
 
-function PizzaBlock({ name, price, imageUrl, types, sizes }) {
+function PizzaBlock({ name, price, imageUrl, types, sizes, isLoading }) {
   const allTypes = ['тонкое', 'традиционное'];
   const allSizes = [26, 30, 40];
 
   const [activeType, setActiveType] = useState(types[0]);
   const [activeSize, setActiveSize] = useState(sizes[0]);
 
+  if (isLoading) {
+    return <PizzaLoadingBlock />;
+  }
   return (
     <div className='pizza-block'>
       <img className='pizza-block__image' src={imageUrl} alt='Pizza' />
@@ -69,6 +73,13 @@ function PizzaBlock({ name, price, imageUrl, types, sizes }) {
 //Just to indicate that we can use prop-types to check whether some props are of the requred type
 PizzaBlock.propTypes = {
   name: PropTypes.string,
+};
+
+PizzaBlock.defaultProps = {
+  name: '---',
+  price: 0,
+  types: [],
+  sizes: [],
 };
 
 export default PizzaBlock;
