@@ -1,6 +1,10 @@
 import React, { useState, useEffect, useRef } from 'react';
 
-const SortPopup = React.memo(function SortPopup({ items, activeSortType, onClickSortType }) {
+const SortPopup = React.memo(function SortPopup({
+  items,
+  activeSortType,
+  onClickSortType,
+}) {
   const sortRef = useRef();
 
   const [sortingVisible, setSortingVisible] = useState(false);
@@ -10,7 +14,8 @@ const SortPopup = React.memo(function SortPopup({ items, activeSortType, onClick
   };
 
   const handleOutsideClick = (event) => {
-    if (!event.path.includes(sortRef.current)) {
+    const path = event.path || (event.composedPath && event.composedPath());
+    if (!path.includes(sortRef.current)) {
       setSortingVisible(false);
     }
   };
@@ -35,7 +40,9 @@ const SortPopup = React.memo(function SortPopup({ items, activeSortType, onClick
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={sortingVisionHandler}>{items.find((obj)=>obj.type===activeSortType).name}</span>
+        <span onClick={sortingVisionHandler}>
+          {items.find((obj) => obj.type === activeSortType).name}
+        </span>
       </div>
       {sortingVisible && (
         <div className='sort__popup'>
