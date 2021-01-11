@@ -1,4 +1,6 @@
-Pizza Store Project https://pizza-react-redux-app.herokuapp.com/
+Pizza Store Project is available at https://pizza-react-redux-app.herokuapp.com/
+
+OR
 
 1. You have to install all the dependencies (npm i or yarn)
 2. You need to start fake json-server on port 3001 by typing "yarn server"
